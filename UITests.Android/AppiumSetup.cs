@@ -16,8 +16,8 @@ public class AppiumSetup
 	public void RunBeforeAnyTests()
 	{
 		// If you started an Appium server manually, make sure to comment out the next line
-		// This line starts a local Appium server for you as part of the test run
-		//AppiumServerHelper.StartAppiumLocalServer();
+		// This line starts a local Appium server for you as part of the test ruu
+	//	AppiumServerHelper.StartAppiumLocalServer();
 
 		var androidOptions = new AppiumOptions
 		{
@@ -37,7 +37,8 @@ public class AppiumSetup
 		// make sure there is an emulator with the name below
 		// If not specified, make sure you have an emulator booted
 		androidOptions.AddAdditionalAppiumOption("avd", "pixel_5_-_api_34");
-
+		androidOptions.AddAdditionalAppiumOption("noReset",true);
+	
 		// Note there are many more options that you can use to influence the app under test according to your needs
 
 		driver = new AndroidDriver(androidOptions);
@@ -47,8 +48,10 @@ public class AppiumSetup
 	public void RunAfterAnyTests()
 	{
 		driver?.Quit();
+		
 
-		// If an Appium server was started locally above, make sure we clean it up here
 		AppiumServerHelper.DisposeAppiumLocalServer();
+		// If an Appium server was started locally above, make sure we clean it up here
+	//AppiumServerHelper.DisposeAppiumLocalServer();
 	}
 }

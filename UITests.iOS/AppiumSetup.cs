@@ -17,7 +17,6 @@ public class AppiumSetup
 	{
 		// If you started an Appium server manually, make sure to comment out the next line
 		// This line starts a local Appium server for you as part of the test run
-		AppiumServerHelper.StartAppiumLocalServer();
 
 		var iOSOptions = new AppiumOptions
 		{
@@ -43,7 +42,7 @@ public class AppiumSetup
 	{
 		driver?.Quit();
 
-		// If an Appium server was started locally above, make sure we clean it up here
 		AppiumServerHelper.DisposeAppiumLocalServer();
+		// If an Appium server was started locally above, make sure we clean it up here
 	}
 }
